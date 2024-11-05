@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<h3>prenom</h3>
-<input type="text" name="test">
-<h3>nom</h3>
-<input type="text" name="test">
-<h3>mot de passe</h3>
-<br>
-<input type="password" name="password">
+    <div class="centerContent">
+        <h3 class="centerContent">Nom d'utilisateur :</h3>
+        <br>
+        <input type="text" name="test">
+        <h3 class="centerContent">Mot de passe : </h3>
+        <br>
+        <input type="password" name="password">
+        <br>
+        <button>Connexion </button>
+    </div>
 <br>
 </body>
 </html>
