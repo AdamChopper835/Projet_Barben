@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TEST</title>
-    <!--pour gérer les accents-->
-    <meta charset = "utf-8">
     <link rel="stylesheet" type = "text/css" href="test2.css">
 </head>
+<body>
+<div class="centerContent h1">
+    <h3>Nom d'utilisateur :</h3>
+    <input type="text" name="test">
+    <h3>Mot de passe :</h3>
+    <input type="password" name="password">
+    <br>
+    <br>
+    <br>
+    <button> Connexion </button>
+    <a href = "/Users/adamc/Desktop/Cours%20Isen/D%C3%A9v%20Web/Barben_page_principale.html"><button> S'inscrire ici </button>
+</div>
+
+</body>
+</html>
