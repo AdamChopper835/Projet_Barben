@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h3>prenom</h3>
+<input type="text" name="test">
+<h3>nom</h3>
+<input type="text" name="test">
+<h3>mot de passe</h3>
+<br>
+<input type="password" name="password">
+<br>
+</body>
+</html>
