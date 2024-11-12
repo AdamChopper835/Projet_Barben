@@ -1,0 +1,213 @@
+<?php
+
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : sam. 09 nov. 2024 à 20:31
+-- Version du serveur : 8.3.0
+-- Version de PHP : 8.2.18
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `barben`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `animaux`
+--
+
+DROP TABLE IF EXISTS `animaux`;
+CREATE TABLE IF NOT EXISTS `animaux` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nombre` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `animaux`
+--
+
+INSERT INTO `animaux` (`id`, `nom`, `nombre`) VALUES
+(1, 'éléphant', 1),
+(2, 'Girafe', 0),
+(3, 'Varan de Komodo', 0),
+(4, 'Grivet Cercopithèque', 0),
+(5, 'Ouistiti Gibbon', 0),
+(6, 'Hyène', 0),
+(7, 'Zèbre', 0),
+(8, 'Loup à crinière', 0),
+(9, 'Hippopotame', 0),
+(10, 'Lion', 0),
+(11, 'Casoar', 0),
+(12, 'Crocodile nain', 0),
+(13, 'Guépard', 0),
+(14, 'Gazelle', 0),
+(15, 'Autruche', 0),
+(16, 'Gnou', 0),
+(17, 'Oryx beisa', 0),
+(18, 'Rhinocéros', 0),
+(19, 'Suricate', 0),
+(20, 'Fennec', 0),
+(21, 'Coati', 0),
+(22, 'Saimiri', 0),
+(23, 'Tapir', 0),
+(24, 'Panthère', 0),
+(25, 'Grand Hocco', 0),
+(26, 'Ara Perroquet', 0),
+(27, 'Panda roux', 0),
+(28, 'Lémurien', 0),
+(29, 'Tortue', 0),
+(30, 'Mouflon', 0),
+(31, 'Chèvre naine', 0),
+(32, 'Binturong', 0),
+(33, 'Loutre', 0),
+(34, 'Macaque crabier', 0),
+(35, 'Cerf', 0),
+(36, 'Vautour', 0),
+(37, 'Loup d\'Europe', 0),
+(38, 'Antilope', 0),
+(39, 'Nilgaut', 0),
+(40, 'Dain', 0),
+(41, 'Tigre', 0),
+(42, 'Chien des buissons', 0),
+(43, 'Serval', 0),
+(44, 'Lynx', 0),
+(45, 'Ibis', 0),
+(46, 'Tortue', 0),
+(47, 'Pécari', 0),
+(48, 'Tamanoir', 0),
+(49, 'Flamant rose', 0),
+(50, 'Nandou', 0),
+(51, 'Emeu', 0),
+(52, 'Wallaby', 0),
+(53, 'Porc-épic', 0),
+(54, 'Dromadaire', 0),
+(55, 'Ane de Provence', 0),
+(56, 'Bison', 0),
+(57, 'Mouton noir', 0),
+(58, 'Yack', 0),
+(59, 'Ane de Somalie', 0),
+(60, 'Watusi', 0),
+(61, 'Oryx algazelle', 0),
+(62, 'Cigogne', 0),
+(63, 'Marabout', 0),
+(64, 'Oiseaux', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `biomes`
+--
+
+DROP TABLE IF EXISTS `biomes`;
+CREATE TABLE IF NOT EXISTS `biomes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `couleur` text NOT NULL,
+  `nom` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `biomes`
+--
+
+INSERT INTO `biomes` (`id`, `couleur`, `nom`) VALUES
+(1, 'bleu', 'Le Vallon des cascades'),
+(2, 'rouge', 'Le plateau'),
+(3, 'gris', 'Le Belvédère'),
+(4, 'orange', 'Les clairières'),
+(5, 'vert', 'Le Bois des pins');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `enclots`
+--
+
+DROP TABLE IF EXISTS `enclots`;
+CREATE TABLE IF NOT EXISTS `enclots` (
+  `id` int NOT NULL,
+  `id_biomes` int NOT NULL,
+  `id_animaux` int NOT NULL,
+  `repos` int NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `services`
+--
+
+DROP TABLE IF EXISTS `services`;
+CREATE TABLE IF NOT EXISTS `services` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom` text NOT NULL,
+  `id_biomes` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `services`
+--
+
+INSERT INTO `services` (`id`, `nom`, `id_biomes`) VALUES
+(1, 'Toilettes', 0),
+(2, 'Point d\'eau', 0),
+(3, 'Boutique', 0),
+(4, 'Gare', 0),
+(5, 'Lodge', 0),
+(6, 'Tente pédagogique', 0),
+(7, 'Paillote', 0),
+(8, 'Café nomade', 0),
+(9, 'Petit café', 0),
+(10, 'Plateau des jeux', 0),
+(11, 'espace Pique-nique', 0),
+(12, 'Point de vue', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `idadmin` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `idadmin`) VALUES
+(1, '', '', '', 'Adam'),
+(2, '', '', '', 'Hélène');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+?>
+
