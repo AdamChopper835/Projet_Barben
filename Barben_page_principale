@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type = "text/css" href="test2.css">
+    </head>
+    <body>
+        <style>
+            /* Style de base pour les liens */
+            .link {
+                color: #3498db;             /* Couleur du lien */
+                font-weight: bold;          /* Gras pour plus de visibilité */
+                text-decoration: none;      /* Enlève le soulignement */
+                padding: 8px 16px;          /* Ajoute un peu de marge interne */
+                border-radius: 5px;         /* Arrondit les coins */
+                background-color: #f0f0f0;  /* Arrière-plan léger */
+                transition: all 0.3s ease;  /* Transition pour les effets au survol */
+            }
+    
+            /* Style au survol */
+            .link:hover {
+                color: #fff;                /* Change la couleur du texte */
+                background-color: #2980b9;  /* Change la couleur d'arrière-plan */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet 3D */
+            }
+    
+            /* Style pour l'état actif/click */
+            .link:active {
+                background-color: #1d5a82;  /* Arrière-plan plus foncé au clic */
+                transform: scale(0.98);     /* Légère réduction de taille au clic */
+            }
+    
+            /* Container Flexbox pour l'alignement */
+            .nav {
+                display: flex;
+                gap: 10px; /* Espace entre les liens */
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="nav">
+            
+           <a> <h3>Parc animalier de la Barben;</h3> </a>
+            <a href="page1.html" class="link">Nos services </a>
+            <a href="page2.html" class="link">Nos animaux </a>
+            <a href="page3.html" class="link">Navigation </a>
+            <a href="page1.html" class="link">Se connecter </a>
+            <a href="page2.html" class="link">Billeterie </a>
+        </div>
+                <h1> Parc animalier de la Barben  </h1>
+                <h3> Nos animaux : </h3>
+                <img src="images.jfif"/>
+
+        </div>
+
+
+    </body>
+
+</html>
