@@ -1,11 +1,9 @@
-<?php
-
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 09 nov. 2024 à 20:31
+-- Généré le : ven. 15 nov. 2024 à 09:39
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -35,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `animaux` (
   `nom` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `nombre` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `animaux`
@@ -46,7 +44,7 @@ INSERT INTO `animaux` (`id`, `nom`, `nombre`) VALUES
 (2, 'Girafe', 0),
 (3, 'Varan de Komodo', 0),
 (4, 'Grivet Cercopithèque', 0),
-(5, 'Ouistiti Gibbon', 0),
+(5, 'Ouistiti', 0),
 (6, 'Hyène', 0),
 (7, 'Zèbre', 0),
 (8, 'Loup à crinière', 0),
@@ -67,7 +65,7 @@ INSERT INTO `animaux` (`id`, `nom`, `nombre`) VALUES
 (23, 'Tapir', 0),
 (24, 'Panthère', 0),
 (25, 'Grand Hocco', 0),
-(26, 'Ara Perroquet', 0),
+(26, 'Ara', 0),
 (27, 'Panda roux', 0),
 (28, 'Lémurien', 0),
 (29, 'Tortue', 0),
@@ -105,7 +103,13 @@ INSERT INTO `animaux` (`id`, `nom`, `nombre`) VALUES
 (61, 'Oryx algazelle', 0),
 (62, 'Cigogne', 0),
 (63, 'Marabout', 0),
-(64, 'Oiseaux', 0);
+(64, 'Oiseaux', 0),
+(66, 'Perroquet', 0),
+(67, 'Tamarin', 0),
+(68, 'Capucin', 0),
+(69, 'Gibbon', 0),
+(70, 'Python', 0),
+(71, 'Iguane', 0);
 
 -- --------------------------------------------------------
 
@@ -119,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `biomes` (
   `couleur` text NOT NULL,
   `nom` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `biomes`
@@ -130,7 +134,8 @@ INSERT INTO `biomes` (`id`, `couleur`, `nom`) VALUES
 (2, 'rouge', 'Le plateau'),
 (3, 'gris', 'Le Belvédère'),
 (4, 'orange', 'Les clairières'),
-(5, 'vert', 'Le Bois des pins');
+(5, 'vert', 'Le Bois des pins'),
+(6, 'vert foncé', 'La Bergerie des reptiles');
 
 -- --------------------------------------------------------
 
@@ -140,11 +145,72 @@ INSERT INTO `biomes` (`id`, `couleur`, `nom`) VALUES
 
 DROP TABLE IF EXISTS `enclots`;
 CREATE TABLE IF NOT EXISTS `enclots` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `id_biomes` int NOT NULL,
-  `id_animaux` int NOT NULL,
-  `repos` int NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_animaux` json NOT NULL,
+  `repos` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `enclots`
+--
+
+INSERT INTO `enclots` (`id`, `id_biomes`, `id_animaux`, `repos`) VALUES
+(0, 1, '[\"26\", \"66\"]', 0),
+(1, 1, '[\"25\"]', 0),
+(2, 1, '[\"24\"]', 0),
+(3, 1, '[\"27\"]', 0),
+(4, 1, '[\"28\"]', 0),
+(6, 1, '[\"31\"]', 0),
+(7, 1, '[\"31\", \"46\"]', 0),
+(8, 1, '[\"30\"]', 0),
+(9, 1, '[\"32\", \"33\"]', 0),
+(10, 2, '[\"10\"]', 0),
+(11, 2, '[\"9\"]', 0),
+(12, 2, '[\"7\"]', 0),
+(13, 2, '[\"6\"]', 0),
+(14, 2, '[\"8\"]', 0),
+(15, 2, '[\"1\"]', 0),
+(16, 2, '[\"3\"]', 0),
+(17, 2, '[\"4\"]', 0),
+(18, 2, '[\"2\"]', 0),
+(24, 3, '[\"18\", \"17\", \"16\"]', 0),
+(20, 2, '[\"5\"]', 0),
+(21, 2, '[\"69\"]', 0),
+(22, 2, '[\"67\"]', 0),
+(23, 2, '[\"68\"]', 0),
+(25, 3, '[\"19\"]', 0),
+(26, 3, '[\"20\"]', 0),
+(27, 3, '[\"21\", \"22\"]', 0),
+(28, 3, '[\"23\"]', 0),
+(29, 3, '[\"14\", \"15\"]', 0),
+(30, 3, '[\"13\"]', 0),
+(31, 3, '[\"12\"]', 0),
+(32, 3, '[\"11\"]', 0),
+(33, 4, '[\"41\"]', 0),
+(34, 4, '[\"42\"]', 0),
+(35, 4, '[\"43\"]', 0),
+(36, 4, '[\"44\"]', 0),
+(37, 4, '[\"45\", \"46\"]', 0),
+(38, 4, '[\"47\"]', 0),
+(39, 4, '[\"48\", \"49\", \"50\"]', 0),
+(40, 4, '[\"51\", \"52\"]', 0),
+(41, 4, '[\"53\"]', 0),
+(42, 4, '[\"54\", \"55\"]', 0),
+(43, 4, '[\"56\"]', 0),
+(44, 4, '[\"\"]', 0),
+(45, 4, '[\"57\", \"58\"]', 0),
+(46, 4, '[\"59\", \"60\", \"61\"]', 0),
+(47, 4, '[\"62\", \"63\"]', 0),
+(48, 4, '[\"64\"]', 0),
+(49, 5, '[\"34\", \"35\"]', 0),
+(50, 5, '[\"36\"]', 0),
+(51, 5, '[\"37\"]', 0),
+(52, 5, '[\"38\", \"39\", \"40\"]', 0),
+(53, 6, '[\"46\"]', 0),
+(54, 6, '[\"70\"]', 0),
+(55, 6, '[\"71\"]', 0);
 
 -- --------------------------------------------------------
 
@@ -206,8 +272,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-
-?>
-
