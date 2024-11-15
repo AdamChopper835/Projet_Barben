@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+       
+
+        </style>
+</head>
+<body>
+    <style>
+        body {
+        
+         background-image: url("Polish_20241112_210134110.jpg");
+         
+         background-size: 1750px 890px;
+         .c{
+         max-width:20px;
+         max-height:232px;
+        
+         margin: 0 auto;}
+        
+        }
+
+
+
+    </style>
+</div>
+
+    <div class="centerContent" >
+        <br>
+        <h3 class="centerContent">Nom d'utilisateur :</h3>
+        <br>
+        <input type="text" name="test">
+        <h3 class="centerContent">Mot de passe : </h3>
+        <br>
+        <input type="password" name="password">
+        <br>
+        <br>
+        <button>Connexion </button>
+        <a href="file:///C:/Users/helen/OneDrive/Bureau/webdev/projet%20page%202.html"><button>S'inscrire</button></a>
+    </div>
+<br>
+</body>
+</html>
