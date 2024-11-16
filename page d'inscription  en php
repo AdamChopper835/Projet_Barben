@@ -1,0 +1,80 @@
+<?php
+// Configuration de la connexion à la base de données
+$server = "localhost";
+$username = "root";
+$password = "";
+$databaseName = "barben";
+
+// Connexion à la base de données
+//$conn = new mysqli($server, $username, $password, $databaseName);
+$conn = mysqli_connect($server, $username, $password, $databaseName);
+
+// Vérifier la connexion
+if ($conn->connect_error) {
+    die("Erreur de connexion : " . $conn->connect_error);
+}
+
+// Récupération des données du formulaire
+//$username = isset($_POST['username']) ? $_POST['username'] : null;
+//$email = isset($_POST['email']) ? $_POST['email'] : null;
+//$password = isset($_POST['password']) ? $_POST['password'] : null;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Récupérer les données du formulaire
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+
+// Vérification que les données requises sont présentes
+if (empty($username) || empty($email) || empty($password)) {
+    die("Veuillez remplir tous les champs.");
+}
+
+// Hachage du mot de passe
+$password_hache = password_hash($password, PASSWORD_BCRYPT);
+//DEFAULT
+// Préparation de la requête SQL
+$sql= $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password_hache')";
+//$sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+//$stmt = $conn->prepare($sql);
+
+//if (!$stmt) {
+//    die("Erreur lors de la préparation de la requête : " . $conn->error);
+//}
+
+// Liaison des paramètres
+//$stmt->bind_param("sss", $username, $email, $password_hache);
+
+// Exécution de la requête
+if(mysqli_query($conn,$sql))
+//if ($stmt->execute()) {
+    echo "Compte créé avec succès !";
+} else {
+    if ($stmt->errno == 1062) {
+        echo "Erreur : cet email est déjà utilisé.";
+    } else {
+        echo "Erreur lors de l'inscription : " .mysqli_error($conn);
+        //$stmt->error;
+    }
+}
+
+// Fermeture de la connexion
+//$stmt->close();
+$conn->close();
+?>
+
+
+//<?php
+session_start();
+
+// Vérification si l'utilisateur est connecté
+if (!isset($_SESSION['user_id'])) {
+    // Redirige vers la page de connexion si non connecté
+    header("page d'inscription2.html");
+    exit();
+}
+
+//Si connecté, afficher le contenu protégé
+echo "Bienvenue, " . htmlspecialchars($_SESSION['username']) . "!";
+?>
+
