@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 15 nov. 2024 à 09:39
+-- Généré le : ven. 22 nov. 2024 à 09:09
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -121,7 +121,7 @@ DROP TABLE IF EXISTS `biomes`;
 CREATE TABLE IF NOT EXISTS `biomes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `couleur` text NOT NULL,
-  `nom` text NOT NULL,
+  `nom_biome` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `biomes` (
 -- Déchargement des données de la table `biomes`
 --
 
-INSERT INTO `biomes` (`id`, `couleur`, `nom`) VALUES
+INSERT INTO `biomes` (`id`, `couleur`, `nom_biome`) VALUES
 (1, 'bleu', 'Le Vallon des cascades'),
 (2, 'rouge', 'Le plateau'),
 (3, 'gris', 'Le Belvédère'),
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `enclots` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_biomes` int NOT NULL,
   `id_animaux` json NOT NULL,
-  `repos` int NOT NULL,
+  `repas` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -156,61 +156,61 @@ CREATE TABLE IF NOT EXISTS `enclots` (
 -- Déchargement des données de la table `enclots`
 --
 
-INSERT INTO `enclots` (`id`, `id_biomes`, `id_animaux`, `repos`) VALUES
-(0, 1, '[\"26\", \"66\"]', 0),
-(1, 1, '[\"25\"]', 0),
-(2, 1, '[\"24\"]', 0),
-(3, 1, '[\"27\"]', 0),
-(4, 1, '[\"28\"]', 0),
-(6, 1, '[\"31\"]', 0),
-(7, 1, '[\"31\", \"46\"]', 0),
-(8, 1, '[\"30\"]', 0),
-(9, 1, '[\"32\", \"33\"]', 0),
-(10, 2, '[\"10\"]', 0),
-(11, 2, '[\"9\"]', 0),
-(12, 2, '[\"7\"]', 0),
-(13, 2, '[\"6\"]', 0),
-(14, 2, '[\"8\"]', 0),
-(15, 2, '[\"1\"]', 0),
-(16, 2, '[\"3\"]', 0),
-(17, 2, '[\"4\"]', 0),
-(18, 2, '[\"2\"]', 0),
-(24, 3, '[\"18\", \"17\", \"16\"]', 0),
-(20, 2, '[\"5\"]', 0),
-(21, 2, '[\"69\"]', 0),
-(22, 2, '[\"67\"]', 0),
-(23, 2, '[\"68\"]', 0),
-(25, 3, '[\"19\"]', 0),
-(26, 3, '[\"20\"]', 0),
-(27, 3, '[\"21\", \"22\"]', 0),
-(28, 3, '[\"23\"]', 0),
-(29, 3, '[\"14\", \"15\"]', 0),
-(30, 3, '[\"13\"]', 0),
-(31, 3, '[\"12\"]', 0),
-(32, 3, '[\"11\"]', 0),
-(33, 4, '[\"41\"]', 0),
-(34, 4, '[\"42\"]', 0),
-(35, 4, '[\"43\"]', 0),
-(36, 4, '[\"44\"]', 0),
-(37, 4, '[\"45\", \"46\"]', 0),
-(38, 4, '[\"47\"]', 0),
-(39, 4, '[\"48\", \"49\", \"50\"]', 0),
-(40, 4, '[\"51\", \"52\"]', 0),
-(41, 4, '[\"53\"]', 0),
-(42, 4, '[\"54\", \"55\"]', 0),
-(43, 4, '[\"56\"]', 0),
-(44, 4, '[\"\"]', 0),
-(45, 4, '[\"57\", \"58\"]', 0),
-(46, 4, '[\"59\", \"60\", \"61\"]', 0),
-(47, 4, '[\"62\", \"63\"]', 0),
-(48, 4, '[\"64\"]', 0),
-(49, 5, '[\"34\", \"35\"]', 0),
-(50, 5, '[\"36\"]', 0),
-(51, 5, '[\"37\"]', 0),
-(52, 5, '[\"38\", \"39\", \"40\"]', 0),
-(53, 6, '[\"46\"]', 0),
-(54, 6, '[\"70\"]', 0),
-(55, 6, '[\"71\"]', 0);
+INSERT INTO `enclots` (`id`, `id_biomes`, `id_animaux`, `repas`) VALUES
+(0, 1, '[\"26\", \"66\"]', '0'),
+(1, 1, '[\"25\"]', '0'),
+(2, 1, '[\"24\"]', '0'),
+(3, 1, '[\"27\"]', '0'),
+(4, 1, '[\"28\"]', '0'),
+(6, 1, '[\"31\"]', '0'),
+(7, 1, '[\"31\", \"46\"]', '0'),
+(8, 1, '[\"30\"]', '0'),
+(9, 1, '[\"32\", \"33\"]', '0'),
+(10, 2, '[\"10\"]', '0'),
+(11, 2, '[\"9\"]', '0'),
+(12, 2, '[\"7\"]', '0'),
+(13, 2, '[\"6\"]', '0'),
+(14, 2, '[\"8\"]', '0'),
+(15, 2, '[\"1\"]', '0'),
+(16, 2, '[\"3\"]', '0'),
+(17, 2, '[\"4\"]', '0'),
+(18, 2, '[\"2\"]', '0'),
+(24, 3, '[\"18\", \"17\", \"16\"]', '0'),
+(20, 2, '[\"5\"]', '0'),
+(21, 2, '[\"69\"]', '0'),
+(22, 2, '[\"67\"]', '0'),
+(23, 2, '[\"68\"]', '0'),
+(25, 3, '[\"19\"]', '0'),
+(26, 3, '[\"20\"]', '0'),
+(27, 3, '[\"21\", \"22\"]', '0'),
+(28, 3, '[\"23\"]', '0'),
+(29, 3, '[\"14\", \"15\"]', '0'),
+(30, 3, '[\"13\"]', '0'),
+(31, 3, '[\"12\"]', '0'),
+(32, 3, '[\"11\"]', '0'),
+(33, 4, '[\"41\"]', '0'),
+(34, 4, '[\"42\"]', '0'),
+(35, 4, '[\"43\"]', '0'),
+(36, 4, '[\"44\"]', '0'),
+(37, 4, '[\"45\", \"46\"]', '0'),
+(38, 4, '[\"47\"]', '0'),
+(39, 4, '[\"48\", \"49\", \"50\"]', '0'),
+(40, 4, '[\"51\", \"52\"]', '0'),
+(41, 4, '[\"53\"]', '0'),
+(42, 4, '[\"54\", \"55\"]', '0'),
+(43, 4, '[\"56\"]', '0'),
+(44, 4, '[\"\"]', '0'),
+(45, 4, '[\"57\", \"58\"]', '0'),
+(46, 4, '[\"59\", \"60\", \"61\"]', '0'),
+(47, 4, '[\"62\", \"63\"]', '0'),
+(48, 4, '[\"64\"]', '0'),
+(49, 5, '[\"34\", \"35\"]', '0'),
+(50, 5, '[\"36\"]', '0'),
+(51, 5, '[\"37\"]', '0'),
+(52, 5, '[\"38\", \"39\", \"40\"]', '0'),
+(53, 6, '[\"46\"]', '0'),
+(54, 6, '[\"70\"]', '0'),
+(55, 6, '[\"71\"]', '0');
 
 -- --------------------------------------------------------
 
@@ -221,28 +221,29 @@ INSERT INTO `enclots` (`id`, `id_biomes`, `id_animaux`, `repos`) VALUES
 DROP TABLE IF EXISTS `services`;
 CREATE TABLE IF NOT EXISTS `services` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nom` text NOT NULL,
-  `id_biomes` int NOT NULL,
+  `nom_service` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id_biomes` json NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `services`
 --
 
-INSERT INTO `services` (`id`, `nom`, `id_biomes`) VALUES
-(1, 'Toilettes', 0),
-(2, 'Point d\'eau', 0),
-(3, 'Boutique', 0),
-(4, 'Gare', 0),
-(5, 'Lodge', 0),
-(6, 'Tente pédagogique', 0),
-(7, 'Paillote', 0),
-(8, 'Café nomade', 0),
-(9, 'Petit café', 0),
-(10, 'Plateau des jeux', 0),
-(11, 'espace Pique-nique', 0),
-(12, 'Point de vue', 0);
+INSERT INTO `services` (`id`, `nom_service`, `id_biomes`) VALUES
+(1, 'Toilettes', '[\"6\", \"2\", \"4\"]'),
+(2, 'Point d\'eau', '[\"4\", \"2\", \"1\"]'),
+(3, 'Boutique', '[\"6\"]'),
+(4, 'Gare', '[\"2\", \"1\"]'),
+(5, 'Lodge', '[\"1\"]'),
+(6, 'Tente pédagogique', '[\"2\"]'),
+(7, 'Paillote', '[\"2\"]'),
+(8, 'Café nomade', '[\"1\"]'),
+(9, 'Petit café', '[\"6\"]'),
+(10, 'Plateau des jeux', '[\"2\"]'),
+(11, 'espace Pique-nique', '[\"1\", \"2\", \"4\"]'),
+(12, 'Point de vue', '[\"4\", \"2\", \"3\"]'),
+(13, 'poste de secours', '[\"6\"]');
 
 -- --------------------------------------------------------
 
@@ -258,15 +259,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(100) NOT NULL,
   `idadmin` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `idadmin`) VALUES
-(1, '', '', '', 'Adam'),
-(2, '', '', '', 'Hélène');
+(1, 'Adam', 'adamchopper83@gmail.com', 'Adam', 'Adam'),
+(2, 'helene', 'helenedonnadieu11@gmail.com', 'helene', 'Hélène'),
+(11, 'azer', 'helene.donnadieu@isen.yncrea.fr', '', ''),
+(12, 'azer', 'helene.donnadieu@isen.yncrea.fr', 'tyui', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
