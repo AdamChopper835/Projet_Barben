@@ -1,24 +1,108 @@
 <!DOCTYPE html>
+
 <html lang="fr">
-<head>
+    <head>
+        <style>
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Amatic SC', cursive;
+    color: #2e7d32; /* Vert pour évoquer la nature */
+    text-align: center;
+}
+
+/* Exemple de boutons */
+button {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    background-color: #ffcc00; /* Jaune lumineux */
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffa000; /* Jaune plus foncé au survol */
+}
+
+</style>
+
+    <style>
+        .link {
+    color: #149b2b ;             /* Couleur du lien */
+    font-weight: bold;          /* Gras pour plus de visibilité */
+    text-decoration: none;      /* Enlève le soulignement */
+    padding: 8px 16px;          /* Ajoute un peu de marge interne */
+    border-radius: 5px;         /* Arrondit les coins */
+    background-color: #f0f0f0;  /* Arrière-plan léger */
+    transition: all 0.3s ease;  /* Transition pour les effets au survol */
+}
+
+/* Style au survol */
+.link:hover {
+    color: #fff;                /* Change la couleur du texte */
+    background-color: green;  /* Change la couleur d'arrière-plan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet 3D */
+}
+
+/* Style pour l'état actif/click */
+.link:active {
+    background-color: #1d5a82;  /* Arrière-plan plus foncé au clic */
+    transform: scale(0.98);     /* Légère réduction de taille au clic */
+}
+
+/* Container Flexbox pour l'alignement */
+.nav {
+    display: flex;
+    gap: 10px; /* Espace entre les liens */
+}
+#p{text-indent:30em;}
+#c{text-indent: 35em ;}
+#i{text-indent: 2em;}
+
+.greenText {
+    color:  #149b2b;}
+
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer un compte utilisateur</title>
 </head>
 <body>
+    <div class="nav">
+           <a> <h1 id="i"  class="greenText">Parc animalier de la Barben </h1> </a>
+           <h5 id="p"></h5>
+           <p><a href="page de presentation.html" class="link">Acceuil </a></p>
+           <p><a  href="http://localhost/projet%20webdev/liste%20des%20services.php" class="link">Nos services </a></p>
+           <p><a href="page2.html" class="link">Nos animaux </a></p>
+           <p><a  href="page3.html" class="link">Navigation </a> </p>
+            <p><a  href="page pour se connecter.html" class="link">Se connecter </a></p>
+            <p><a  href="page2.html" class="link">Billeterie </a> </p>
+        </div>     
     <h1>Créer un compte utilisateur</h1>
     <form action="essai page inscription.php" method="POST">
-        <label for="username">username:</label>
+        <h4 center><label for="username">Nom d'utilisateur :</label>  
         <input type="text" id="username" name="username" required><br><br>
 
-        <label for="email">email :</label>
+        <label for="email">Adresse mail :</label>
         <input type="email" id="email" name="email" required><br><br>
 
-        <label for="password">password :</label>
+        <label for="password">Mot de passe :</label>
         <input type="password" id="password" name="password" required><br><br>
 
-        <button type="submit">Creer un compte</button>
-
+        <div class="nav">
+        <h4 id = "c"><p><a  href="page.html" class="link">Créer un compte</a> </p></h4>
+        </h4>
+         </div>
     </form>
 </body>
 </html>
