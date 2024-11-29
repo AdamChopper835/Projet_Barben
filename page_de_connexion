@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    
     <style>
        
 
@@ -11,24 +11,78 @@
     <style>
         body {
         
-         background-image: url("Polish_20241112_210134110.jpg");
+         background-image: url("panda_roux.jpg");
          
          background-size: 1750px 890px;
-         .c{
+        .c{
          max-width:20px;
          max-height:232px;
         
          margin: 0 auto;}
         
         }
+        
+        .link {
+    color: #149b2b ;             /* Couleur du lien */
+    font-weight: bold;          /* Gras pour plus de visibilité */
+    text-decoration: none;      /* Enlève le soulignement */
+    padding: 8px 16px;          /* Ajoute un peu de marge interne */
+    border-radius: 5px;         /* Arrondit les coins */
+    background-color: #f0f0f0;  /* Arrière-plan léger */
+    transition: all 0.3s ease;  /* Transition pour les effets au survol */
+}
 
+/* Style au survol */
+.link:hover {
+    color: #fff;                /* Change la couleur du texte */
+    background-color: green;  /* Change la couleur d'arrière-plan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet 3D */
+}
+
+/* Style pour l'état actif/click */
+.link:active {
+    background-color: #1d5a82;  /* Arrière-plan plus foncé au clic */
+    transform: scale(0.98);     /* Légère réduction de taille au clic */
+}
+
+/* Container Flexbox pour l'alignement */
+.nav {
+    display: flex;
+    gap: 10px; /* Espace entre les liens */
+}
+#p{text-indent:60em;}
+#i{text-indent: 2em;}
+
+.greenText {
+    color:  #149b2b;}
+.centerContent{
+    max-width:300px;
+    margin: 0 auto;
+}
 
 
     </style>
 </div>
+<div class="nav">
+   
+    <h5 class="greenText" id="p">.</h5>
+    <p><a href="page de presentation.html" class="link">Acceuil </a></p>
+    <p><a  href="http://localhost/projet%20webdev/liste%20des%20services.php" class="link">Nos services </a></p>
+    <p><a href="liste des animaux.html" class="link">Nos animaux </a></p>
+    <p><a  href="page3.html" class="link">Navigation </a> </p>
+    
+     <p><a  href="page2.html" class="link">Billeterie </a> </p>
+ </div>     
 
     <div class="centerContent" >
         <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
         <h3 class="centerContent">Nom d'utilisateur :</h3>
         <br>
         <input type="text" name="test">
@@ -37,8 +91,12 @@
         <input type="password" name="password">
         <br>
         <br>
-        <button>Connexion </button>
-        <a href="file:///C:/Users/helen/OneDrive/Bureau/webdev/projet%20page%202.html"><button>S'inscrire</button></a>
+        <div class="nav">
+        
+            <a href="page d'inscription2.html" class="link">connexion</a>
+            <a href="page d'inscription2.html" class="link">creer un compte</a>
+        </div>
+        
     </div>
 <br>
 </body>
