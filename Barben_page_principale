@@ -4,19 +4,15 @@
         <link rel="stylesheet" type = "text/css" href="test2.css">
     </head>
     <body>
+
         <style>
             body {
-            
-             background-image: url("tigrepagepresentation.jpg");
-             
-             background-size: 1600px 850px;
-              
+                font-family: 'Quicksand', sans-serif;
+                background-color: #d3d1d1;
+                color: #333;
+                margin: 0;
+                padding: 0;
             }
-
-
-
-        </style>
-        <style>
             /* Style de base pour les liens */
             .link {
                 color: #149b2b ;             /* Couleur du lien */
@@ -76,7 +72,7 @@
             transform: translateY(2px);
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
         }
-        h3 {text-align: center;}
+        h3 , h4, h5{text-align: center;}
 
         #image-container {
             margin-top: 20px;
@@ -102,7 +98,7 @@
         <div class="nav">
             
            <a> <h1 id="i"  class="greenText">Parc animalier de la Barben </h1> </a>
-           <h5 id="p">.</h5>
+           
            <p><a  href="http://localhost/projet%20webdev/echo_services.php" class="link">Nos services </a></p>
            <p><a href="liste des biomes.php" class="link">Nos animaux </a></p>
            <p><a  href="page3.html" class="link">Navigation </a> </p>
@@ -116,7 +112,7 @@
         <body>
             
             <!-- Bouton stylé -->
-            <h3><button id="show-image-btn">Carte du zoo</button></h3>
+            <h5><button id="show-image-btn">Carte du zoo</button></h5>
 
             <!-- Conteneur pour l'image -->
             <div id="image-container"></div>
@@ -140,19 +136,53 @@
                 imageContainer.appendChild(img);
             });
         </script>
-    
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <style>
+            .mySlides {display:none;}
+            </style>
+            </head>
+            
+            <body>
+            
+            <div class="w3-content w3-section" style="max-width:500px">
+              <img class="mySlides" src="lion.jpg" style="width:100%">
+              <img class="mySlides" src="tigre.jpg" style="width:100%">
+              <img class="mySlides" src="ara.jpg" style="width:100%">
+            </div>
+            
+            <script>
+            var myIndex = 0;
+            carousel();
+            
+            function carousel() {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+              }
+              myIndex++;
+              if (myIndex > x.length) {myIndex = 1}    
+              x[myIndex-1].style.display = "block";  
+              setTimeout(carousel, 2000); // Change image every 2 seconds
+            }
+            </script>
+            
+            </body>
         <!-- Bouton pour afficher la zone de saisie d'avis -->
        
 
-        <h3><button onclick="afficherAvis()">Laisser un Avis</button></h3>
+        <h5><button onclick="afficherAvis()">Laisser un Avis</button></h5>
 
     <!-- Zone d'avis (initialement cachée) -->
-    <h3><div id="avisZone">
-        <h2>Ecrivez votre avis :</h2>
+    <h5><div id="avisZone">
+        <h5>Ecrivez votre avis :</h5>
         <textarea id="avisTexte" placeholder="Ecrivez ici..."></textarea>
         <br>
         <button onclick="soumettreAvis()">Soumettre l'Avis</button>
-        <button onclick="fermerAvis()">Fermer</button></h3> <!-- Ajouter un bouton pour fermer la zone -->
+        <button onclick="fermerAvis()">Fermer</button></h5> <!-- Ajouter un bouton pour fermer la zone -->
     </div>
     <script>
         // Fonction pour afficher la zone d'avis
