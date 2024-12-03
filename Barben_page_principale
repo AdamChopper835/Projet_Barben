@@ -90,6 +90,9 @@
             max-width: 100%;
             box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
         }
+        #avisZone {
+            display: none;  /* Cacher la zone au départ */}
+        
         </style>
       
              
@@ -114,7 +117,7 @@
             
             <!-- Bouton stylé -->
             <h3><button id="show-image-btn">Carte du zoo</button></h3>
-            <h3><button id="show-image-btn">Laisser un avis</button></h3>
+
             <!-- Conteneur pour l'image -->
             <div id="image-container"></div>
         <script>
@@ -137,7 +140,47 @@
                 imageContainer.appendChild(img);
             });
         </script>
-    </body>
-        
+    
+        <!-- Bouton pour afficher la zone de saisie d'avis -->
+       
 
-</html>
+        <h3><button onclick="afficherAvis()">Laisser un Avis</button></h3>
+
+    <!-- Zone d'avis (initialement cachée) -->
+    <h3><div id="avisZone">
+        <h2>Ecrivez votre avis :</h2>
+        <textarea id="avisTexte" placeholder="Ecrivez ici..."></textarea>
+        <br>
+        <button onclick="soumettreAvis()">Soumettre l'Avis</button>
+        <button onclick="fermerAvis()">Fermer</button></h3> <!-- Ajouter un bouton pour fermer la zone -->
+    </div>
+    <script>
+        // Fonction pour afficher la zone d'avis
+        function afficherAvis() {
+            var avisZone = document.getElementById("avisZone");
+            // Vérifier si la zone est cachée et l'afficher si c'est le cas
+            if (avisZone.style.display === "none" || avisZone.style.display === "") {
+                avisZone.style.display = "block"; // Affiche la zone
+            }
+        }
+
+        // Fonction pour soumettre l'avis
+        function soumettreAvis() {
+            var avisTexte = document.getElementById("avisTexte").value;
+            if (avisTexte) {
+                alert("Avis soumis : " + avisTexte);
+                // Vous pouvez ajouter ici du code pour envoyer l'avis à un serveur ou le traiter
+            } else {
+                alert("Veuillez écrire un avis avant de soumettre.");
+            }
+        }
+
+        // Fonction pour fermer la zone d'avis
+        function fermerAvis() {
+            var avisZone = document.getElementById("avisZone");
+            avisZone.style.display = "none"; // Cacher la zone 
+        }
+    </script>
+     
+    </body>
+    </html>
