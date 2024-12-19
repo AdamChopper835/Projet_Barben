@@ -79,14 +79,14 @@ button:hover {
 </head>
 <body>
     <div class="nav">
-           <a> <h1 id="i"  class="greenText">Parc animalier de la Barben </h1> </a>
+          <a> <h1 id="i"  class="greenText">Parc animalier de la Barben </h1> </a>
            <h5 id="p"></h5>
-           <p><a href="page de presentation.html" class="link">Acceuil </a></p>
+           <p><a href="Barben_page_principale.html" class="link">Acceuil </a></p>
            <p><a  href="http://localhost/projet%20webdev/liste%20des%20services.php" class="link">Nos services </a></p>
-           <p><a href="page2.html" class="link">Nos animaux </a></p>
+           <p><a href="Barben_animaux.php" class="link">Nos animaux </a></p>
            <p><a  href="page3.html" class="link">Navigation </a> </p>
-            <p><a  href="page pour se connecter.html" class="link">Se connecter </a></p>
-            <p><a  href="page2.html" class="link">Billeterie </a> </p>
+            <p><a  href="page_de_connexion.html" class="link">Se connecter </a></p>
+            <p><a  href="billetterie.html" class="link">Billeterie </a> </p>
         </div>     
     <h1>Créer un compte utilisateur</h1>
     <form action="essai page inscription.php" method="POST">
