@@ -100,10 +100,10 @@
            <a> <h1 id="i"  class="greenText">Parc animalier de la Barben </h1> </a>
            
            <p><a  href="http://localhost/projet%20webdev/echo_services.php" class="link">Nos services </a></p>
-           <p><a href="liste des biomes.php" class="link">Nos animaux </a></p>
+           <p><a href="Barben_animaux.php" class="link">Nos animaux </a></p>
            <p><a  href="page3.html" class="link">Navigation </a> </p>
-            <p><a  href="page pour se connecter.html" class="link">Se connecter </a></p>
-            <p><a  href="page2.html" class="link">Billeterie </a> </p>
+            <p><a  href="page_de_connexion.html" class="link">Se connecter </a></p>
+            <p><a  href="billetterie.html" class="link">Billeterie </a> </p>
            
         
 
@@ -135,6 +135,8 @@
                 imageContainer.innerHTML = '';
                 imageContainer.appendChild(img);
             });
+
+            
         </script>
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1">
