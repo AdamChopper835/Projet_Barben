@@ -68,7 +68,7 @@ $services = json_decode($response);
            <h5 id="p">.</h5>
            <p><a  href="Barben_page_principale.html" class="link">Acceuil</a></p>
            <p><a href="Barben_animaux.php" class="link">Nos animaux </a></p>
-           <p><a  href="page3.html" class="link">Navigation </a> </p>
+           <p><a  href="navigation.html" class="link">Navigation </a> </p>
             <p><a  href="page_de_connexion.html" class="link">Se connecter </a></p>
             <p><a  href="billetterie.html" class="link">Billeterie </a> </p>
            
