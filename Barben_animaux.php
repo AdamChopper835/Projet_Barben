@@ -210,8 +210,8 @@ h1 {
     <p><a href="Barben_page_principale.html" class="link">Accueil </a></p>      
     <p><a  href="http://localhost/projet%20webdev/echo_services.php" class="link">Nos services </a></p>
     <p><a  href="navigation.html" class="link">Navigation </a> </p>
-     <p><a  href="page pour se connecter.html" class="link">Se connecter </a></p>
-     <p><a  href="page2.html" class="link">Billeterie </a> </p>
+     <p><a  href="page_de_connexion.php" class="link">Se connecter </a></p>
+     <p><a  href="billetterie.html" class="link">Billeterie </a> </p>
 </body>
 <!-- MAIN (Center website) -->
 <body>
