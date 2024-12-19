@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billetterie - Zoo Aventure</title>
+  
+  <!-- Intégration de Google Fonts pour une police élégante -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Généralités */
+    body {
+                font-family: 'Quicksand', sans-serif;
+                background-color: #d3d1d1;
+                color: #333;
+                margin: 0;
+                padding: 0;
+            }
+            /* Style de base pour les liens */
+            .link {
+                color: #149b2b ;             /* Couleur du lien */
+                font-weight: bold;          /* Gras pour plus de visibilité */
+                text-decoration: none;      /* Enlève le soulignement */
+                padding: 8px 16px;          /* Ajoute un peu de marge interne */
+                border-radius: 5px;         /* Arrondit les coins */
+                background-color: #f0f0f0;  /* Arrière-plan léger */
+                transition: all 0.3s ease;  /* Transition pour les effets au survol */
+            }
+    
+            /* Style au survol */
+            .link:hover {
+                color: #fff;                /* Change la couleur du texte */
+                background-color: green;  /* Change la couleur d'arrière-plan */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet 3D */
+            }
+    
+            /* Style pour l'état actif/click */
+            .link:active {
+                background-color: #1d5a82;  /* Arrière-plan plus foncé au clic */
+                transform: scale(0.98);     /* Légère réduction de taille au clic */
+            }
+    
+            /* Container Flexbox pour l'alignement */
+            .nav {
+                display: flex;
+                gap: 10px; /* Espace entre les liens */
+            }
+            #p{text-indent:30em;}
+            #i{text-indent: 2em;}
+
+            .greenText {
+                color:  #149b2b;}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #d3d1d1, #74807a);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* En-tête */
+    header {
+      text-align: center;
+      padding: 20px 0;
+      background: linear-gradient(to right, #d3d1d1, #74807a);
+      color: white;
+
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 2.8em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Conteneur principal avec style de carte */
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Section billetterie avec design propre */
+    .ticket-section {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    /* Cartes avec style */
+    .ticket-option {
+      flex: 1 1 200px;
+      background: #f0f0f0;
+      border: 2px solid #468847;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px;
+      transition: box-shadow 0.2s ease;
+      cursor: pointer;
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .ticket-option:hover {
+      box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    select,
+    input[type="number"] {
+      margin: 10px auto;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #555;
+      display: block;
+    }
+
+    /* Style du bouton avec animation */
+    button {
+      background: #556b2f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background: #6b8e23;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Résumé du total dynamique */
+    .total-section {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #444;
+      margin: 20px 0;
+      transition: transform 0.2s ease;
+    }
+
+    /* Responsivité */
+    @media (max-width: 768px) {
+      .ticket-section {
+        flex-direction: column;
+      }
+
+      select,
+      input[type="number"] {
+        width: 90%;
+      }
+    }
+
+    #confirmation-message {
+            margin-top: 20px;
+            color: green;
+            font-size: 1.2em;
+            display: none; /* Message caché par défaut */
+        }
+  </style>
+</head>
+<body>
+  <!-- En-tête -->
+  <body>
+    <header> 
+    <div class="nav">
+        
+       <a> <h1 id="i"  class="greenText">Parc animalier de la Barben </h1> </a>
+       <p><a  href="Barben_page_principale.html" class="link">Acceuil </a> </p>
+       <p><a  href="http://localhost/projet%20webdev/echo_services.php" class="link">Nos services </a></p>
+       <p><a href="Barben_animaux.php" class="link">Nos animaux </a></p>
+       <p><a  href="page3.html" class="link">Navigation </a> </p>
+        <p><a  href="page_de_connexion.html" class="link">Se connecter </a></p>
+        
+       
+    
+    </header>
+   
+    </div>
+    <body>
+
+
+  <div class="container">
+    <div class="ticket-section">
+       <div class="ticket-option">
+        <p><strong>adultes</strong></p>
+        <br>
+        <p>21 €</p>
+        <select id="ticketType4">
+            <option value="21">21€</option>
+        </select>
+        <input type="number" id="quantity4" value="1" min="1" max="20">
+        </div>
+      <div class="ticket-option">
+        <p><strong>Enfant (3 à 12 ans)</strong></p>
+        <br>
+        <p>15 €</p>
+        <select id="ticketType2">
+          <option value="15">15€</option>
+        </select>
+        <input type="number" id="quantity2" value="1" min="1" max="20">
+      </div>
+      <div class="ticket-option">
+        <p><strong>étudiants post-bac</strong></p>
+        <br>
+        <p>16 €</p>
+        <select id="ticketType3">
+          <option value="16">16€</option>
+        </select>
+        <input type="number" id="quantity3" value="1" min="1" max="20">
+      </div>
+   
+      <div class="ticket-option">
+        <p><strong>Personnes en situation de handicap</strong></p>
+        <p>12 €</p>
+        <select id="ticketType1">
+          <option value="12">12€</option>
+        </select>
+        <input type="number" id="quantity1" value="1" min="1" max="20">
+      </div>
+    </div>
+
+    <button id="calculateTotal">Calculer le total</button>
+    
+
+    <div class="total-section">
+      Total : <span id="total">0 €</span>
+      <br>
+      <button id="order-button" id="calculateTotal">Commander les billets</button>
+
+      <p id="confirmation-message">Votre commande a bien été enregistrée. Merci !</p>
+  
+      <script>
+          // Ajout d'un écouteur d'événement sur le bouton
+          document.getElementById('order-button').addEventListener('click', function () {
+              // Récupération du message et affichage
+              const message = document.getElementById('confirmation-message');
+              message.style.display = 'block'; // Affiche le message
+          });
+      </script>
+  
+    </div>
+  </div>
+
+  <script>
+    const calculateButton = document.getElementById("calculateTotal");
+
+    calculateButton.onclick = function () {
+      const total = (
+        parseInt(document.getElementById('ticketType1').value) * parseInt(document.getElementById('quantity1').value) +
+        parseInt(document.getElementById('ticketType2').value) * parseInt(document.getElementById('quantity2').value) +
+        parseInt(document.getElementById('ticketType3').value) * parseInt(document.getElementById('quantity3').value) +
+        parseInt(document.getElementById('ticketType4').value) * parseInt(document.getElementById('quantity4').value)
+      );
+      document.getElementById('total').innerText = `${total} €`;
+    };
+  </script>
+</body>
+</html>
