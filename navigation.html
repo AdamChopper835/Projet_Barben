@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte et Trajet de l'Animal</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <style>
+        #map { height: 600px; }
+        #search { margin: 20px; }
+    
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Amatic SC', cursive;
+    color: #2e7d32; /* Vert pour évoquer la nature */
+    text-align: center;
+}
+
+/* Exemple de boutons */
+button {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    background-color: #ffcc00; /* Jaune lumineux */
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffa000; /* Jaune plus foncé au survol */
+}
+
+</style>
+
+    <style>
+        .link {
+    color: #149b2b ;             /* Couleur du lien */
+    font-weight: bold;          /* Gras pour plus de visibilité */
+    text-decoration: none;      /* Enlève le soulignement */
+    padding: 8px 16px;          /* Ajoute un peu de marge interne */
+    border-radius: 5px;         /* Arrondit les coins */
+    background-color: #f0f0f0;  /* Arrière-plan léger */
+    transition: all 0.3s ease;  /* Transition pour les effets au survol */
+}
+
+/* Style au survol */
+.link:hover {
+    color: #fff;                /* Change la couleur du texte */
+    background-color: green;  /* Change la couleur d'arrière-plan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet 3D */
+}
+
+/* Style pour l'état actif/click */
+.link:active {
+    background-color: #1d5a82;  /* Arrière-plan plus foncé au clic */
+    transform: scale(0.98);     /* Légère réduction de taille au clic */
+}
+
+/* Container Flexbox pour l'alignement */
+.nav {
+    display: flex;
+    gap: 10px; /* Espace entre les liens */
+}
+#p{text-indent:30em;}
+#c{text-indent: 35em ;}
+#i{text-indent: 2em;}
+
+.greenText {
+    color:  #149b2b;}
+
+    </style>
+</head>
+<body><div class="nav">
+    <h1>Recherche par animal</h1>
+   
+    <p><a href="Barben_page_principale.html" class="link">Acceuil </a></p>
+           <p><a  href="http://localhost/projet%20webdev/echo_services.php" class="link">Nos services </a></p>
+           <p><a href="Barben_animaux.php" class="link">Nos animaux </a></p>
+           <p><a  href="navigation.html" class="link">Navigation </a> </p>
+            <p><a  href="page_de_connexion.html" class="link">Se connecter </a></p>
+            <p><a  href="billetterie.html" class="link">Billeterie </a> </p></div>
+    <input type="text" id="search" placeholder="Cherchez un animal..."/>
+    <div id="map"></div>
+   
+
+    <script>
+        var map = L.map('map').setView([43.62410, 5.20942], 13);  // Position initiale (ex : Paris)
+        
+        // Ajouter la couche de carte OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+
+
+        
+        // Fonction pour obtenir la position de l'utilisateur
+        function getUserLocation(callback) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var userLat = position.coords.latitude;
+                    var userLon = position.coords.longitude;
+                    callback([userLat, userLon]);
+                }, function(error) {
+                    alert("Impossible de récupérer votre position.");
+                });
+            } else {
+                alert("Géolocalisation non supportée par ce navigateur.");
+            }
+        }
+        // Fonction de recherche de l'animal
+        var animals = {
+            "oiseaux": {lat: 43.62439, lon: 5.21128},  
+           
+            // le bois des pins
+            "loup d'europe": {lat: 43.621414, lon: 5.213029},
+            "nilgaut": {lat: 43.621993, lon: 5.212683},
+            "daim": {lat: 43.621993, lon:  5.212683},
+            "antilope": {lat: 43.621993, lon:  5.212683},
+            "vautour": {lat: 43.622032, lon: 5.210859},
+            "cerf": {lat: 43.621414, lon: 5.209612},
+            "macaque crabier": {lat: 43.621414, lon: 5.209612},
+
+            // les clairières
+            "dromadaire": {lat: 43.622065, lon: 5.213638}, 
+            "âne de provence": {lat: 43.622065, lon: 5.213638} ,
+            "bison": {lat: 43.622065, lon: 5.213638} ,
+            "porc-epic": {lat: 43.622801, lon: 5.212664} ,
+            "Wallaby": {lat: 43.622704, lon:  5.212246} ,
+            "émeu": {lat: 43.622704, lon: 5.212246} ,
+            "nandou": {lat: 43.622793, lon:  5.211886} ,
+            "flamant rose": {lat: 43.622793, lon:  5.211886} ,
+            "tamanoir": {lat: 43.622793, lon:  5.211886}, 
+            "pécari": {lat: 43.623065, lon: 5.210749} ,
+            "tortue": {lat: 43.623181, lon:5.210486} ,
+            "ibis": {lat: 43.623181, lon: 5.210486},
+            "mouton noir": {lat: 43.623597, lon:5.210309},
+            "yack": {lat: 43.623597, lon: 5.210309},
+            //"âne de somalie": {lat: 43.622065, lon: 5.213638},
+            //"watusi": {lat: 43.622065, lon: 5.213638},
+            //"oryx gazelle": {lat: 43.622065, lon: 5.213638},
+            "cigogne": {lat: 43.624021, lon:5.210003},
+            "marabout": {lat: 43.624253, lon:5.210223},
+            "tigre": {lat: 43.622766, lon:5.210497},
+            "chien des buissons": {lat: 43.622770, lon: 5.210990},
+            "serval": {lat: 43.622851, lon:5.210223},
+            "lynx": {lat: 43.623034, lon: 5.209907}, 
+
+            // le vallon des cascades
+            "loutre": {lat: 43.623241, lon: 5.208909},
+            "birturong": {lat: 43.623241, lon: 5.208909},
+            "mouflon": {lat: 43.623022, lon:5.208104},
+            //"tortue": {lat: 43.623051, lon:  5.207922},
+            "lémurien": {lat: 43.623170, lon:5.207021},
+            "chèvre naine": {lat:43.622932, lon: 5.207756}, 
+            "panda roux": {lat: 43.623603, lon:5.206811},
+            "panthère": {lat: 43.626124, lon:  5.205580}, 
+            "grand hocco": {lat: 43.626343, lon: 5.205312}, 
+            "ara": {lat: 43.626405, lon:  5.205103}, 
+            "perroquet": {lat: 43.626405, lon:  5.205103},
+            
+            
+            //le belvedere
+           // "crocodile nain": {lat: 43.626405, lon:  5.205103}, 
+            "casoar": {lat: 43.625473, lon:   5.208989}, 
+            "tapir": {lat: 43.625347, lon: 5.208501}, 
+            "saimiri": {lat: 43.625491, lon:  5.207579}, 
+            "coati": {lat: 43.625802, lon:  5.207305}, 
+            "fennec": {lat: 43.625804, lon:  5.206935}, 
+            "suricate": {lat:43.625732, lon:  5.206862}, 
+            "rhinocéros": {lat: 43.626160, lon:   5.206801}, 
+            "oryx beisa": {lat: 43.626160, lon:   5.206801}, 
+            "gnou": {lat:43.626160, lon:  5.206801}, 
+            "autruche": {lat: 43.625891, lon:   5.207595}, 
+            "gazelle": {lat: 43.626121, lon:  5.208571}, 
+            "guépard": {lat:43.626078, lon:  5.209091}, 
+
+
+            //le plateau
+            "lion": {lat:43.625053, lon: 5.209301}, 
+            "hippopotame": {lat:43.624668, lon:  5.209735}, 
+            "zèbre": {lat:43.624287, lon:  5.209306}, 
+            "hyène": {lat:43.624288, lon:  5.208512}, 
+            "loup à crinière": {lat:43.623565, lon:  5.209290}, 
+            "girafe": {lat:43.623830, lon:  5.208222, 
+            "elephant": {lat:43.624199, lon:  5.207734}, 
+           // "varan de komodo": {lat:43.626078, lon:  5.209091}, 
+           // "grivet cercopithèque": {lat:43.626078, lon:  5.209091}, 
+            "ouistiti gibbon": {lat43:43.624363, lon:  5.207088}, 
+            "capucin": {lat:43.624363, lon:  5.207088}, 
+            "tamarin": {lat:43.624363, lon:  5.207088}, 
+            
+            //la bergerie des reptiles
+            "python": {lat:43.625123, lon:  5.204301}, 
+            "tortue": {lat:43.625123, lon:5.204301}, 
+            "iguane": {lat:43.625123, lon:5.204301}, 
+            
+        }};
+
+                // Gestion de la recherche d'un animal
+                document.getElementById("search").addEventListener("input", function() {
+            var animal = this.value.toLowerCase();
+            if (animals[animal]) {
+                var animalCoords = animals[animal];
+
+                // Centrer la carte sur l'animal
+                map.setView([animalCoords.lat, animalCoords.lon], 15);
+
+                // Ajouter un marqueur pour l'animal
+                L.marker([animalCoords.lat, animalCoords.lon]).addTo(map)
+                    .bindPopup("Animal : " + animal)
+                    .openPopup();
+
+                // Récupérer la position de l'utilisateur et tracer le trajet
+                getUserLocation(function(userLocation) {
+                    // Ajouter un marqueur pour l'utilisateur
+                    L.marker(userLocation).addTo(map)
+                        .bindPopup("Votre position")
+                        .openPopup();
+
+                    // Tracer l'itinéraire
+                    var routingControl = L.Routing.control({
+                        waypoints: [
+                            L.latLng(userLocation[0], userLocation[1]),
+                            L.latLng(animalCoords.lat, animalCoords.lon)
+                        ],
+                        routeWhileDragging: true,
+                        router: L.Routing.osrmv1({
+                            serviceUrl: 'https://router.project-osrm.org/route/v1'
+                        })
+                    }).addTo(map);
+                });
+            } 
+        });
+    </script>
+</body>
+</html>
