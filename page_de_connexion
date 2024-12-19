@@ -9,79 +9,193 @@
 </head>
 <body>
     <style>
+        /* Généralités */
         body {
+                    font-family: 'Quicksand', sans-serif;
+                    background-color: #d3d1d1;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                }
+                /* Style de base pour les liens */
+                .link {
+                    color: #149b2b ;             /* Couleur du lien */
+                    font-weight: bold;          /* Gras pour plus de visibilité */
+                    text-decoration: none;      /* Enlève le soulignement */
+                    padding: 8px 16px;          /* Ajoute un peu de marge interne */
+                    border-radius: 5px;         /* Arrondit les coins */
+                    background-color: #f0f0f0;  /* Arrière-plan léger */
+                    transition: all 0.3s ease;  /* Transition pour les effets au survol */
+                }
         
-         background-image: url("panda_roux.jpg");
-         
-         background-size: 1750px 890px;
-        .c{
-         max-width:20px;
-         max-height:232px;
+                /* Style au survol */
+                .link:hover {
+                    color: #fff;                /* Change la couleur du texte */
+                    background-color: green;  /* Change la couleur d'arrière-plan */
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet 3D */
+                }
         
-         margin: 0 auto;}
+                /* Style pour l'état actif/click */
+                .link:active {
+                    background-color: #1d5a82;  /* Arrière-plan plus foncé au clic */
+                    transform: scale(0.98);     /* Légère réduction de taille au clic */
+                }
         
-        }
-        
-        .link {
-    color: #149b2b ;             /* Couleur du lien */
-    font-weight: bold;          /* Gras pour plus de visibilité */
-    text-decoration: none;      /* Enlève le soulignement */
-    padding: 8px 16px;          /* Ajoute un peu de marge interne */
-    border-radius: 5px;         /* Arrondit les coins */
-    background-color: #f0f0f0;  /* Arrière-plan léger */
-    transition: all 0.3s ease;  /* Transition pour les effets au survol */
-}
-
-/* Style au survol */
-.link:hover {
-    color: #fff;                /* Change la couleur du texte */
-    background-color: green;  /* Change la couleur d'arrière-plan */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet 3D */
-}
-
-/* Style pour l'état actif/click */
-.link:active {
-    background-color: #1d5a82;  /* Arrière-plan plus foncé au clic */
-    transform: scale(0.98);     /* Légère réduction de taille au clic */
-}
-
-/* Container Flexbox pour l'alignement */
-.nav {
-    display: flex;
-    gap: 10px; /* Espace entre les liens */
-}
-#p{text-indent:60em;}
-#i{text-indent: 2em;}
-
-.greenText {
-    color:  #149b2b;}
-.centerContent{
-    max-width:300px;
-    margin: 0 auto;
-}
-
-
-    </style>
-</div>
-<div class="nav">
-   
-    <h5 class="greenText" id="p">.</h5>
-    <p><a href="page de presentation.html" class="link">Acceuil </a></p>
-    <p><a  href="http://localhost/projet%20webdev/liste%20des%20services.php" class="link">Nos services </a></p>
-    <p><a href="liste des animaux.html" class="link">Nos animaux </a></p>
-    <p><a  href="page3.html" class="link">Navigation </a> </p>
+                /* Container Flexbox pour l'alignement */
+                .nav {
+                    display: flex;
+                    gap: 10px; /* Espace entre les liens */
+                }
+                #p{text-indent:30em;}
+                #i{text-indent: 2em;}
     
-     <p><a  href="page2.html" class="link">Billeterie </a> </p>
- </div>     
-
+                .greenText {
+                    color:  #149b2b;}
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        body {
+          font-family: 'Roboto', sans-serif;
+          background: linear-gradient(to bottom, #d3d1d1, #74807a);
+          color: #333;
+          line-height: 1.6;
+        }
+    
+        /* En-tête */
+        header {
+          text-align: center;
+          padding: 20px 0;
+          background: linear-gradient(to right, #d3d1d1, #74807a);
+          color: white;
+    
+          box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+        }
+    
+        h1 {
+          font-size: 2.8em;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+    
+        /* Conteneur principal avec style de carte */
+        .container {
+          max-width: 600px;
+          margin: 30px auto;
+          background: white;
+          padding: 20px;
+          border-radius: 15px;
+          box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+          transition: transform 0.2s ease;
+        }
+    
+        .container:hover {
+          transform: translateY(-5px);
+        }
+    
+        /* Section billetterie avec design propre */
+        .ticket-section {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 15px;
+          margin: 20px 0;
+        }
+    
+        /* Cartes avec style */
+        .ticket-option {
+          flex: 1 1 200px;
+          background: #f0f0f0;
+          border: 2px solid #468847;
+          padding: 15px;
+          text-align: center;
+          border-radius: 10px;
+          transition: box-shadow 0.2s ease;
+          cursor: pointer;
+          box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+        }
+    
+        .ticket-option:hover {
+          box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+        }
+    
+        select,
+        input[type="number"] {
+          margin: 10px auto;
+          padding: 8px;
+          border-radius: 5px;
+          border: 1px solid #555;
+          display: block;
+        }
+    
+        /* Style du bouton avec animation */
+        button {
+          background: #556b2f;
+          color: white;
+          border: none;
+          padding: 12px 20px;
+          font-size: 18px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        button:hover {
+          background: #6b8e23;
+          transform: translateY(-3px);
+          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Résumé du total dynamique */
+        .total-section {
+          text-align: center;
+          font-size: 24px;
+          font-weight: bold;
+          color: #444;
+          margin: 20px 0;
+          transition: transform 0.2s ease;
+        }
+    
+        /* Responsivité */
+        @media (max-width: 768px) {
+          .ticket-section {
+            flex-direction: column;
+          }
+    
+          select,
+          input[type="number"] {
+            width: 90%;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <!-- En-tête -->
+      <body>
+        <header> 
+        <div class="nav">
+            
+           <a> <h1 id="i"  class="greenText">Parc animalier de la Barben </h1> </a>
+           
+           <p><a  href="http://localhost/projet%20webdev/echo_services.php" class="link">Nos services </a></p>
+           <p><a href="Barben_animaux.php" class="link">Nos animaux </a></p>
+           <p><a  href="page3.html" class="link">Navigation </a> </p>
+            <p><a  href="page_de_connexion.html" class="link">Se connecter </a></p>
+            <p><a  href="billetterie.html" class="link">Billeterie </a> </p>
+           
+        
+        </header>
+       
+        </div>
+        <body>
+    
+    
+</div>
+<div class="container">
     <div class="centerContent" >
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+  
 
         <h3 class="centerContent">Nom d'utilisateur :</h3>
         <br>
@@ -93,11 +207,11 @@
         <br>
         <div class="nav">
         
-            <a href="page d'inscription2.html" class="link">connexion</a>
-            <a href="page d'inscription2.html" class="link">creer un compte</a>
+            <a href="page_d'inscription.html" class="link">connexion</a>
+            <a href="page_d'inscription.html" class="link">creer un compte</a>
         </div>
         
-    </div>
+ </div>   </div>
 <br>
 </body>
 </html>
