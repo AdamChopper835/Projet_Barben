@@ -3,13 +3,66 @@
 <html lang="fr">
     <head>
         <style>
+           body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .content {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            margin-top: 20px;
+            font-size: 1.4em;
+            border-bottom: 2px solid #4CAF50;
+            display: inline-block;
+        }
+
+        p {
+            text-align: justify;
+            margin: 10px 0;
+        }
+
+        .carousel {
+            margin-top: 20px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 20px;
+        }
+            
 body {
+
     font-family: 'Quicksand', sans-serif;
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
     padding: 0;
 }
+
 
 /* Titres */
 h1, h2, h3, h4, h5, h6 {
@@ -79,7 +132,7 @@ button:hover {
 </head>
 <body>
     <div class="nav">
-          <a> <h1 id="i"  class="greenText">Parc animalier de la Barben </h1> </a>
+           <a> <h1 id="i"  class="greenText">Parc animalier de la Barben </h1> </a>
            <h5 id="p"></h5>
            <p><a href="Barben_page_principale.html" class="link">Acceuil </a></p>
            <p><a  href="echo_services1.php" class="link">Nos services </a></p>
@@ -90,18 +143,50 @@ button:hover {
         </div>     
     <h1>Créer un compte utilisateur</h1>
     <form action="essai page inscription.php" method="POST">
-        <h4 center><label for="username">Nom d'utilisateur :</label>  
+        <h4 center><label for="username">Nom d'utilisateur :</label>
+
         <input type="text" id="username" name="username" required><br><br>
 
         <label for="email">Adresse mail :</label>
         <input type="email" id="email" name="email" required><br><br>
-
         <label for="password">Mot de passe :</label>
         <input type="password" id="password" name="password" required><br><br>
 
         <div class="nav">
         <h4 id = "c"><p><a  href="page.html" class="link">Créer un compte</a> </p></h4>
+        <br>
+        <br>
+        <div class="carousel">
+            <div class="w3-content w3-section" style="max-width:600px">
+                <img class="mySlides" src="iguane.jpg">
+                <img class="mySlides" src="loup d'europe.jpg" >
+                <img class="mySlides" src="panda roux.jpg" >
+                <img class="mySlides" src="gazelle.jpg" >
+            </div>
+        </div>
+        <script>
+            var myIndex = 0;
+            carousel();
+    
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) {myIndex = 1}
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 2000);
+            }
+        </script>
+        
         </h4>
+         </div>
+    </form>
+</body>
+</html>
+
          </div>
     </form>
 </body>
