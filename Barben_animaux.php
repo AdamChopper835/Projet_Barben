@@ -3,6 +3,43 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 300px;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .content2 {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+       
+</style>
+
+
+<style>
+
+
     *{
         margin: 0;
         padding: 0;
@@ -89,7 +126,7 @@
    
 /* Bouton stylé */
 button {
-    background: linear-gradient(135deg, #149b2b, #149b2b);
+    background: linear-gradient(135deg,rgb(12, 0, 2),rgb(247, 246, 246));
     border: none;
     border-radius: 50px;
     padding: 12px 30px;
@@ -100,6 +137,71 @@ button {
     transition: all 0.3s ease-in-out;
 
 }
+button1 {
+    background: linear-gradient(135deg,rgb(205, 128, 146),rgb(155, 20, 65));
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+
+}
+button6 {
+    background: linear-gradient(135deg,rgb(150, 148, 143),rgb(67, 80, 70));
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;}
+
+    button2 {
+    background: linear-gradient(135deg,rgb(127, 144, 207),rgb(31, 25, 145));
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;}
+
+    button3 {
+    background: linear-gradient(135deg,rgb(200, 188, 97),rgb(211, 173, 34));
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;}
+
+    button4 {
+    background: linear-gradient(135deg,rgb(150, 190, 98),rgb(20, 155, 25));
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;}
+    button5 {
+    background: linear-gradient(135deg,rgb(26, 103, 25),rgb(6, 73, 16));
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;}
 
 button:hover {
     transform: translateY(-2px);
@@ -203,37 +305,123 @@ h1 {
   background-color: #666;
   color: white;
 }
+a {
+  color: green;
+}
+#p{text-indent:70em;}
 </style>
 </head>
 <body>
+<div class="nav">
     <a> <h1 id="i"  class="greenText">Parc animalier de la Barben </h1> </a>
     <p><a href="Barben_page_principale.html" class="link">Accueil </a></p>      
     <p><a  href="echo_services1.php" class="link">Nos services </a></p>
     <p><a  href="navigation.html" class="link">Navigation </a> </p>
-     <p><a  href="page_de_connexion.php" class="link">Se connecter </a></p>
+    <p><a  href="page_de_connexion.php" class="link">Se connecter </a></p>
      <p><a  href="billetterie.html" class="link">Billeterie </a> </p>
-</body>
-<!-- MAIN (Center website) -->
+     
+</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Horaires de Repas d'un Animal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .repas-list {
+            margin-top: 10px;
+        }
+        .repas-list ul {
+            list-style-type: none;
+        }
+        .repas-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+    
+</head>
 <body>
-<div class="main">
+  
 
-<h2>Nos Animaux</h2>
-        
+    <form id="repasForm">
+        <h4 id="p"><label for="animal">Choisir un animal :</label></h4>
+        <h4 id="p"><input type="text" id="animal" name="animal" required></h4>
+
+        <h4 id="p"><label for="horaire">Horaire du repas :</label></h4>
+        <h4 id="p"><input type="time" id="horaire" name="horaire" required><br><br></h4>
+
+        <h4 id="p"><button type="submit">Ajouter l'horaire</button></h4>
+    </form>
+
+    <div class="repas-list">
    
+    <h4 id="p"> <div id="horairesAffiches"></div></h4>
+    </div>
+
+    <script>
+        // Créer un objet pour stocker les repas par animal
+        let repasData = {};
+
+        // Fonction pour ajouter un horaire de repas
+        document.getElementById('repasForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêcher l'envoi du formulaire
+
+            const animal = document.getElementById('animal').value;
+            const horaire = document.getElementById('horaire').value;
+
+            // Vérifier si l'animal existe dans l'objet, sinon le créer
+            if (!repasData[animal]) {
+                repasData[animal] = [];
+            }
+
+            // Ajouter l'horaire à l'animal
+            repasData[animal].push(horaire);
+
+            // Afficher les horaires
+            afficherHoraires();
+            
+            // Réinitialiser le formulaire
+            document.getElementById('repasForm').reset();
+        });
+
+        // Fonction pour afficher les horaires des repas
+        function afficherHoraires() {
+            const horairesAffiches = document.getElementById('horairesAffiches');
+            horairesAffiches.innerHTML = ''; // Effacer le contenu actuel
+
+            for (const animal in repasData) {
+                const horairesList = repasData[animal];
+                const listHtml = `<h3>Repas de ${animal} :</h3>
+                                  <ul>${horairesList.map(horaire => `<li>${horaire}</li>`).join('')}</ul>`;
+                horairesAffiches.innerHTML += listHtml;
+            }
+        }
+    </script>
+</body>
+</html>
+
+</body>
+  
         <div id="myBtnContainer">
-       <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-      <button class="btn" onclick="filterSelection('Le plateau')"> Le Plateau</button>
-      <button class="btn" onclick="filterSelection('Le Belvedere')"> Le Belvedere</button>
-      <button class="btn" onclick="filterSelection('Le Vallon des cascades')"> Le Vallon des cascades</button>
-      <button class="btn" onclick="filterSelection('Les Clairieres')"> Les Clairieres</button>
-      <button class="btn" onclick="filterSelection('Le Bois des pins')"> Le Bois des pins</button>
+       <button class="btn active" onclick="filterSelection('all')"> Tous les animaux</button>
+      <button1 class="btn" onclick="filterSelection('Le plateau')"> Le Plateau</button1>
+      <button6 class="btn" onclick="filterSelection('Le Belvedere')"> Le Belvedere</button6>
+      <button2 class="btn" onclick="filterSelection('Le Vallon des cascades')"> Le Vallon des cascades</button2>
+      <button3 class="btn" onclick="filterSelection('Les Clairieres')"> Les Clairieres</button3>
+      <button4 class="btn" onclick="filterSelection('Le Bois des pins')"> Le Bois des pins</button4>
+      <button5 class="btn" onclick="filterSelection('La Bergerie des reptiles')"> La Bergerie des reptiles</button5>
+
     </div>
       
-    
+ 
+
 <!-- Portfolio Gallery Grid -->
 <div class="row">
   <div class="column Le plateau">
-    <div class="content">
+    <div class="content" data-animal="Lion">
       <img src="lion.jpg" alt="Lion" style="width:100%">
       <h4>Lion <div class="rate">
         <input type="radio" id="star5" name="rate" value="5" />
@@ -247,13 +435,12 @@ h1 {
         <input type="radio" id="star1" name="rate" value="1" />
         <label for="star1" title="text">1 star</label>
         <br>
-        <a href="description enclos.html">description de l'enclos</a>
+        <a href="description_enclos.html">description de l'enclos</a>
       </div></h4>
-   
-    </div>
+      </div>
   </div>
   <div class="column Le plateau">
-    <div class="content">
+    <div class="content" data-animal="hippopotame">
     <img src="hippopotame.jpg" alt="Hippopotame" style="width:95%">
       <h4>Hippopotame</h4>
     
@@ -340,8 +527,8 @@ h1 {
 
   <div class="column Le Vallon des cascades">
     <div class="content">
-      <img src="ara.jpg" alt="Car" style="width:48%">
-      <img src="perroquet.jpg" alt="Car" style="width:48%">
+      <img src="ara.jpg" alt="Car" style="width:55%">
+      <img src="perroquet.jpg" alt="Car" style="width:55%">
       <h4>Arra et perroquet</h4>
     
     </div>
@@ -377,15 +564,15 @@ h1 {
   </div>
   <div class="column Le Vallon des cascades">
     <div class="content">
-    <img src="chèvre naine.jpeg" alt="Car" style="width:100%">
+    <img src="chèvre naine.jpeg" alt="Car" style="width:75%">
       <h4>Chèvre naine</h4>
      
     </div>
   </div>
   <div class="column Le Vallon des cascades">
     <div class="content">
-    <img src="chèvre naine.jpeg" alt="Car" style="width:60%">
-    <img src="tortue.jpg" alt="Car" style="width:60%">
+    <img src="chèvre naine.jpeg" alt="Car" style="width:50%">
+    <img src="tortue.jpg" alt="Car" style="width:50%">
       <h4>Chèvre naine et tortue</h4>
      
     </div>
@@ -399,15 +586,15 @@ h1 {
   </div>
   <div class="column Le Vallon des cascades">
     <div class="content">
-    <img src="binturong.jpg" alt="Car" style="width:50%">
-    <img src="loutre.jpg" alt="Car" style="width:50%">
+    <img src="binturong.jpg" alt="Car" style="width:60%">
+    <img src="loutre.jpg" alt="Car" style="width:60%">
       <h4>Binturong et Loutre</h4>
   
     </div>
   </div>
   <div class="column Le Belvedere">
   <div class="content">
-  <img src="crocodile nain.jpg" alt="Car" style="width:50%">
+  <img src="crocodile nain.jpg" alt="Car" style="width:100%">
     <h4>Crocodile nain</h4>
 
     </div>
@@ -421,14 +608,14 @@ h1 {
   </div>
   <div class="column Le Belvedere">
   <div class="content">
-  <img src="guépard.jpg" alt="Car" style="width:50%">
+  <img src="guépard.jpg" alt="Car" style="width:90%">
     <h4>Guépard</h4>
 
     </div>
   </div>
   <div class="column Le Belvedere">
   <div class="content">
-  <img src="tapir.jpg" alt="Car" style="width:50%">
+  <img src="tapir.jpg" alt="Car" style="width:80%">
       <h4>Tapir</h4>
 
     </div>
@@ -444,14 +631,14 @@ h1 {
   </div>
   <div class="column Le Belvedere">
   <div class="content">
-        <img src="fennec.jpg" alt="Car" style="width:50%">
+        <img src="fennec.jpg" alt="Car" style="width:90%">
     <h4>Fennec</h4>
 
     </div>
   </div>
   <div class="column Le Belvedere">
   <div class="content">
-        <img src="suricate.jpg" alt="Car" style="width:50%">
+        <img src="suricate.jpg" alt="Car" style="width:90%">
     <h4>Suricate</h4>
 
     </div>
@@ -459,13 +646,12 @@ h1 {
 
 <div class="column Le Belvedere">
   <div class="content">
-  <img src="rhinoceros.jpg" alt="Car" style="width:50%">
-  <img src="oryx beisa.jpg" alt="Car" style="width:50%">
+  <img src="rhinoceros.jpg" alt="Car" style="width:70%">
+  <img src="oryx beisa.jpg" alt="Car" style="width:70%">
   <img src="gnou.jpg" alt="Car" style="width:50%">
     <h4>Rhinocéros, Oryx Beisa et Gnou</h4>
 </div>
 </div>
-
 <div class="column Le Belvedere">
         <div class="content">
         <img src="autruche.jpg" alt="Car" style="width:50%">
@@ -476,15 +662,15 @@ h1 {
 
 <div class="column Les Clairieres">
     <div class="content">
-      <img src="mouton noir.jpg" alt="Car" style="width:60%">
-          <img src="yack.jpg" alt="Car" style="width:60%">
+      <img src="mouton noir.jpg" alt="Car" style="width:48%">
+          <img src="yack.jpg" alt="Car" style="width:50%">
             <h4>Mouton noir et Yack</h4>
         </div>
   </div>
 
   <div class="column Les Clairieres">
   <div class="content">
-  <img src="porc epique.jpg" alt="Car" style="width:60%">
+  <img src="porc epique.jpg" alt="Car" style="width:80%">
     <h4>Porc epic</h4>
     </div>
   </div>
@@ -498,8 +684,8 @@ h1 {
 
   <div class="column Les Clairieres">
       <div class="content">
-      <img src="flamant rose.jpg" alt="Car" style="width:60%">
-      <img src="nandou.jpg" alt="Car" style="width:60%">  
+      <img src="flamant rose.jpg" alt="Car" style="width:58%">
+      <img src="nandou.jpg" alt="Car" style="width:40%">  
       <img src="tamanoir.jpg" alt="Car" style="width:60%">
         <h4>Flamant rose, Nandou et Tamanoir</h4>
     </div>
@@ -507,7 +693,7 @@ h1 {
 
   <div class="column Les Clairieres">
   <div class="content">
-  <img src="pécari.jpg" alt="Car" style="width:60%">
+  <img src="pécari.jpg" alt="Car" style="width:90%">
 <h4>Pécari</h4>
 
     </div>
@@ -523,14 +709,14 @@ h1 {
 
   <div class="column Les Clairieres">
   <div class="content">
-  <img src="lynx.jpg" alt="Car" style="width:60%">
+  <img src="lynx.jpg" alt="Car" style="width:80%">
     <h4>Lynx</h4> 
     </div>
   </div>
 
   <div class="column Les Clairieres">
   <div class="content">
-  <img src="serval.jpg" alt="Car" style="width:60%">
+  <img src="serval.jpg" alt="Car" style="width:84%">
     <h4>Serval</h4>
 
     </div>
@@ -538,14 +724,14 @@ h1 {
 
   <div class="column Les Clairieres">
   <div class="content">
-  <img src="chien des buissons.jpg" alt="Car" style="width:60%">
+  <img src="chien des buissons.jpg" alt="Car" style="width:80%">
     <h4>Chien des buissons</h4>
     </div>
   </div>
 
   <div class="column Les Clairieres">
   <div class="content">
-  <img src="tigre.jpg" alt="Car" style="width:60%">
+  <img src="tigre.jpg" alt="Car" style="width:95%">
     <h4>Tigre</h4>
 
     </div>
@@ -553,15 +739,15 @@ h1 {
 
   <div class="column Les Clairieres">
   <div class="content">
-  <img src="bison.jpg" alt="Car" style="width:60%">
+  <img src="bison.jpg" alt="Car" style="width:90%">
     <h4>Bison</h4>
     </div>
   </div>
 
   <div class="column Les Clairieres">
   <div class="content">
-<img src="ane-provence.jpg" alt="Car" style="width:60%">  
-<img src="dromadaire.jpg" alt="Car" style="width:60%">
+<img src="ane-provence.jpg" alt="Car" style="width:70%">  
+<img src="dromadaire.jpg" alt="Car" style="width:70%">
     <h4>Ane de provence et Dromadaire</h4>
 
     </div>
@@ -588,7 +774,7 @@ h1 {
 
   <div class="column Le Bois des pins">
   <div class="content"> 
-<img src="loup d'europe.jpg" alt="Car" style="width:60%">
+<img src="loup d'europe.jpg" alt="Car" style="width:100%">
     <h4>Loup d'Europe</h4>
 
     </div>
@@ -596,7 +782,7 @@ h1 {
 
   <div class="column Le Bois des pins">
   <div class="content">
-<img src="cerf.jpg" alt="Car" style="width:60%">
+<img src="cerf.jpg" alt="Car" style="width:85%">
     <h4>Cerf</h4>
 
     </div>
@@ -604,7 +790,7 @@ h1 {
 
   <div class="column Le Bois des pins">
   <div class="content">
-<img src="vautour.jpg" alt="Car" style="width:60%">
+<img src="vautour.jpg" alt="Car" style="width:90%">
     <h4>Vautour</h4>
 
     </div>
@@ -622,10 +808,32 @@ h1 {
 
   <div class="column Le Bois des pins">
   <div class="content">
-  <img src="macaque crabier.jpg" alt="Car" style="width:60%">
+  <img src="macaque crabier.jpg" alt="Car" style="width:65%">
     <h4>Macaque crabier</h4>
   </div>
 </div>
+<div class="column La Bergerie des reptiles">
+<div class="content" data-animal="iguane">
+<img src="iguane.jpg" alt="Iguane" style="width:65%">
+  <h4>Iguane</h4>
+
+</div>
+</div>
+
+
+<div class="column La Bergerie des reptiles">
+<div class="content" data-animal="python">
+<img src="python.jpg" alt="Python" style="width:70%">
+  <h4>Python</h4>
+
+</div>
+</div>
+
+<div class="column La Bergerie des reptiles">
+<div class="content" data-animal="tortue">
+<img src="tortue.jpg" alt="Tortue" style="width:90%">
+  <h4>Tortue</h4>
+
   
 <!-- END GRID -->
 </div>
@@ -679,5 +887,36 @@ for (var i = 0; i < btns.length; i++) {
 }
 </script>
 
+
+<script>
+        document.getElementById("searchForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+            
+            const animalName = document.getElementById("animalName").value.trim().toLowerCase();
+            const allContent2 = document.querySelectorAll(".content2");
+
+            let found = false;
+
+            allContent2.forEach(content2 => {
+                const dataAnimal = content2.getAttribute("data-animal").toLowerCase();
+                if (dataAnimal.includes(animalName)) {
+                    found = true;
+                    content2.scrollIntoView({ behavior: "smooth" });
+                    content2.style.border = "2px solid #4CAF50"; // Met en évidence l'animal trouvé
+                    setTimeout(() => content2.style.border = "1px solid #ddd", 2000); // Réinitialise le style après un délai
+                }
+            });
+
+            if (!found) {
+                alert("Aucun animal trouvé pour ce nom !");
+            }
+        });
+    </script>
 </body>
 </html>
+
+
+
+
+
+
