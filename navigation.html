@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -83,15 +83,15 @@ button:hover {
     </style>
 </head>
 <body><div class="nav">
-    <h1>Recherche par animal</h1>
+    <h1>Recherche par animal/service</h1>
    
     <p><a href="Barben_page_principale.html" class="link">Acceuil </a></p>
            <p><a  href="echo_services1.php" class="link">Nos services </a></p>
            <p><a href="Barben_animaux.php" class="link">Nos animaux </a></p>
-        
+           
             <p><a  href="page_de_connexion.php" class="link">Se connecter </a></p>
             <p><a  href="billetterie.html" class="link">Billeterie </a> </p></div>
-    <input type="text" id="search" placeholder="Cherchez un animal..."/>
+    <input type="text" id="search" placeholder="Cherchez un animal/service..."/>
     <div id="map"></div>
    
 
@@ -194,7 +194,7 @@ button:hover {
             "zèbre": {lat:43.624287, lon:  5.209306}, 
             "hyène": {lat:43.624288, lon:  5.208512}, 
             "loup à crinière": {lat:43.623565, lon:  5.209290}, 
-            "girafe": {lat:43.623830, lon:  5.208222, 
+            "girafe": {lat:43.623830, lon:  5.208222}, 
             "elephant": {lat:43.624199, lon:  5.207734}, 
            // "varan de komodo": {lat:43.626078, lon:  5.209091}, 
            // "grivet cercopithèque": {lat:43.626078, lon:  5.209091}, 
@@ -203,11 +203,23 @@ button:hover {
             "tamarin": {lat:43.624363, lon:  5.207088}, 
             
             //la bergerie des reptiles
-            "python": {lat:43.625123, lon:  5.204301}, 
-            "tortue": {lat:43.625123, lon:5.204301}, 
-            "iguane": {lat:43.625123, lon:5.204301}, 
-            
-        }};
+            "python": {lat:43.626035, lon:  5.204248}, 
+            "tortue": {lat:43.626035, lon:5.204248}, 
+            "iguane": {lat:43.626035, lon:5.204248}, 
+
+            // services
+
+            "paillote" : {lat:43.624299, lon:  5.206597},
+            "lodge":  {lat : 43.624633, lon:5.207568},
+            "pique-nique" : {lat:43.625200, lon : 5.207396},
+            "toilettes" : {lat : 43.625235,lon : 5.206457},
+            "gare" : {lat : 43.624633, lon:5.207578},
+            "point d'eau" : {lat : 43.622518,lon: 5.212244},
+            "boutique" : {lat :43.626043, lon : 5.204386 },
+            "petit café" : {lat : 43.625783, lon : 5.204193},
+            "restaurant" : {lat : 43.625759, lon: 5.204670},
+            "point de vue" :{lat: 43.624323, lon: 5.210872},
+             };
 
                 // Gestion de la recherche d'un animal
                 document.getElementById("search").addEventListener("input", function() {
